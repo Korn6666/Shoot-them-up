@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1522353794}
   - component: {fileID: 1522353795}
   - component: {fileID: 874052146465837793}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,9 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b207fbd742c0da42b64eb7ff803ca82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 10
-  Health: 20
-  MaxHealth: 20
+  maxSpeed: 10
+  health: 0
+  maxHealth: 5
+  MaxEnergy: 20
+  Energy: 0
+  waitForFullEnergy: 0
+  energyChargeSpeed: 5
+  drainShoot: 1
+  Shooting: 0
+  uIManager: {fileID: 0}
 --- !u!114 &874052146465837793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4f7b212f0108c4da1f60861bfd327d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerTarget:
+    serializedVersion: 2
+    m_Bits: 256
   bullet: {fileID: 2144654797659769531, guid: 25f5e942880a7924289310589e323976, type: 3}
-  Damage: 10
-  Speed: {x: 5, y: 0}
-  Cooldown: 2
+  Damage: 1
+  Speed: {x: 10, y: 0}
+  Cooldown: 0.2

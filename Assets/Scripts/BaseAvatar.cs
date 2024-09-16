@@ -2,29 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public  enum AvatarType{
+    PlayerAvatar,
+    EnemyAvatar
+}
 public abstract class BaseAvatar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float MaxSpeed;
-    public float Health;
-    public float MaxHealth;
+ 
+    [SerializeField]
+    private float maxSpeed;
+    public float health;
+    public float maxHealth;
+    public AvatarType type;
 
+     public float MaxSpeed {
+        get 
+        {
+            return this.maxSpeed;
+        }
+        private set 
+        {
+                this.maxSpeed = value;
+        }
+    }
 
     public virtual void TakeDamage(float damage)
     {
 
-        Health -= damage;
+        health -= damage;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             Die();
         }
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
-
-            Destroy(gameObject);
-        
+        Destroy(gameObject);
     }
 }

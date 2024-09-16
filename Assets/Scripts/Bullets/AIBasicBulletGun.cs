@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIBasicBulletGun : MonoBehaviour
 {
+    [SerializeField] private LayerMask layerTarget;
     [SerializeField] private GameObject bullet;
     private SimpleBullet simpleBullet;
     [SerializeField] private float Damage;
@@ -16,7 +17,7 @@ public class AIBasicBulletGun : MonoBehaviour
         newScale = bullet.transform.localScale;
         newScale.x *= -1;
 
-        coolDownTimer = 0;
+        coolDownTimer = 0.5f;
 
     }
 
@@ -28,8 +29,10 @@ public class AIBasicBulletGun : MonoBehaviour
             simpleBullet = bullet.GetComponent<SimpleBullet>();
             simpleBullet.Damage = Damage;
             simpleBullet.Speed = Speed;
-            GameObject theBullet = Instantiate(bullet, gameObject.transform.position + 2f * Speed.x * Vector3.right, Quaternion.identity);
+            GameObject theBullet = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
             theBullet.transform.localScale = newScale;
+            theBullet.GetComponent<SimpleBullet>().type = BulletType.EnemyBullet;
+            theBullet.GetComponent<SimpleBullet>().layerTarget = layerTarget;
 
             coolDownTimer = Cooldown;
         }

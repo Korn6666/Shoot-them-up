@@ -13,10 +13,12 @@ public class InputController : MonoBehaviour
 
         GetComponent<Engines>().Speed = speed;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)&&!GetComponent<PlayerAvatar>().waitForFullEnergy)
         {
-
+            GetComponent<PlayerAvatar>().Shooting = true;
             GetComponent<BulletGun>().Fire();
+        }else{
+            GetComponent<PlayerAvatar>().Shooting = false;
         }
     }
 }
