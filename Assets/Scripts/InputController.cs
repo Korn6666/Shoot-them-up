@@ -20,5 +20,7 @@ public class InputController : MonoBehaviour
         }else{
             GetComponent<PlayerAvatar>().Shooting = false;
         }
+
+
     }
 }

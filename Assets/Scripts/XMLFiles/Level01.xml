@@ -285,7 +285,7 @@
             <x>12</x>
             <y>3</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
         <EnemyDescription>
@@ -294,7 +294,7 @@
             <x>14</x>
             <y>0</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
         <EnemyDescription>
@@ -303,7 +303,7 @@
             <x>12</x>
             <y>-3</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_02</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
     <!-- Fifth wave -->
@@ -313,7 +313,7 @@
             <x>12</x>
             <y>-4</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_04</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
     <EnemyDescription>
@@ -322,7 +322,7 @@
             <x>12</x>
             <y>-2</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_04</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
     <EnemyDescription>
@@ -331,7 +331,7 @@
             <x>12</x>
             <y>0</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_04</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
     <EnemyDescription>
@@ -340,7 +340,7 @@
             <x>12</x>
             <y>4</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_04</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
     <EnemyDescription>
@@ -349,7 +349,7 @@
             <x>12</x>
             <y>2</y>
         </SpawnPosition>
-        <PrefabPath>Prefabs/Enemy_04</PrefabPath>
+        <PrefabPath>Prefabs/Enemy_01</PrefabPath>
     </EnemyDescription>
 
 </LevelDescription>

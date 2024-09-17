@@ -14,7 +14,6 @@ namespace Data
         [XmlElement] public float SpawnDate;
         [XmlElement] public Vector2 SpawnPosition;
         [XmlElement] public string PrefabPath;
-
     }
 
 }

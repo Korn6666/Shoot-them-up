@@ -19,6 +19,7 @@ public class PlayerAvatar : BaseAvatar
     // Start is called before the first frame update
     void Start()
     {
+        uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         type = AvatarType.PlayerAvatar;
         health = maxHealth;
         Energy = MaxEnergy;

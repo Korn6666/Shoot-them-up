@@ -13,6 +13,7 @@ public class BulletGun : MonoBehaviour
     [SerializeField] private float Cooldown;
     private float coolDownTimer;
     private PlayerAvatar playerAvatar;
+    [SerializeField] Transform bulletSpawnPosition;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class BulletGun : MonoBehaviour
             // bulletOnFire = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
             // bulletOnFire.GetComponent<SimpleBullet>().Init(Damage,Speed);
             // bulletOnFire.GetComponent<SimpleBullet>().type = BulletType.PlayerBullet;
-            bulletOnFire = BulletFactory.Instance.GetBullet(BulletType.PlayerBullet, Damage, Speed, transform.position);
+            bulletOnFire = BulletFactory.Instance.GetBullet(BulletType.PlayerBullet, Damage, Speed, bulletSpawnPosition.position);
 
             //bulletOnFire.GetComponent<SimpleBullet>().layerTarget = layerTarget;
 

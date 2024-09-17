@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Data;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] UIManager uIManager;
 
- 
+    [SerializeField] TextAsset[] levelData;
+    public LevelDescription[] levels;
+    private Levels currentLevel;
+
+    private int levelIndex;
+
 
     private GameManager() {
         // initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
@@ -35,16 +41,15 @@ public class GameManager : MonoBehaviour
     }
 
 
-    [SerializeField] TextAsset[] levelData;
-    public LevelDescription[] levels;
-    private Levels currentLevel;
+
     private void Awake()
     {
+        levelIndex = 0;
         // Assurez-vous qu'il n'y a pas déjà une instance du GameManager
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Garder cet objet entre les scènes
+            //DontDestroyOnLoad(gameObject); // Garder cet objet entre les scènes
         }
         else if (instance != this)
         {
@@ -61,17 +66,33 @@ public class GameManager : MonoBehaviour
         }
  
         currentLevel = new Levels();
-        currentLevel.Load(levels[0]);
-        
+        currentLevel.Load(levels[levelIndex]);
+
         Instantiate(player, playerSpawnPosition);
         player.GetComponent<PlayerAvatar>().uIManager = uIManager;
-        InvokeRepeating("EnemyRandomSpawn", 2.0f, 2.0f);
+        //InvokeRepeating("EnemyRandomSpawn", 2.0f, 2.0f);
 
 
     }
 
-    private void Update(){
+    private void Update()
+    {
         currentLevel.Execute();
+
+        if (currentLevel.IsFinished())
+        {
+            if (levelIndex >= levels.Length)
+                SceneManager.LoadScene(0); // Get back to menu
+            NextLevel();
+        }
+    }
+
+    private void NextLevel()
+    {
+        Debug.Log("next level!");
+        levelIndex += 1;
+        currentLevel.Unload();
+        currentLevel.Load(levels[levelIndex]);
     }
 
     private void EnemyRandomSpawn(){
